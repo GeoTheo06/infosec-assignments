@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Build artifacts
+labs/lab1-wifi/lab1-wifi-student.zip
+labs/**/*-student.zip
+
+# Local secrets / run outputs (never commit real GoPhish keys)
+labs/lab2-imitation/publish/config.json
+labs/lab2-imitation/**/result.json
+
+# OS
+.DS_Store
+Thumbs.db

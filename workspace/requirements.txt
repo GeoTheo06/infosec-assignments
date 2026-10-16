@@ -1,0 +1,18 @@
+# Shared, pinned dependencies for the Information Security practicals workspace.
+# Python 3.11+ (developed and verified on CPython 3.11.4).
+#
+# These cover labs 3 (DH MITM), 4 (passwords) and 5 (JWT), plus the lab 2
+# publish/grader scripts. Lab 1 needs no Python packages (stdlib checker);
+# its runtime tools (aircrack-ng, wireshark/tshark) are OS packages installed
+# on the course image, not pip packages.
+
+cryptography==44.0.0     # HKDF, AES-GCM (lab 3); RSA key handling (lab 5)
+PyJWT==2.10.1            # JWT encode/decode (lab 5)
+Flask==3.1.0            # DH peer service (lab 3), JWT app (lab 5)
+requests==2.32.3        # API clients: DH helpers, lab 2 publish + grader
+pytest==8.3.4          # test suites for labs 3, 4, 5
+
+# Lab 2 browser grader uses the course workspace browser automation. The
+# reference grader here talks to the GoPhish REST API with `requests`; a
+# Selenium/Playwright variant is described in labs/lab2-imitation/README.md
+# but is not required to grade (the API confirms the captured event).
