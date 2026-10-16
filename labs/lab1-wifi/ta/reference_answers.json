@@ -1,0 +1,14 @@
+{
+  "_comment": "TA reference: a fully correct student submission, used to self-test the checker. Uses the second valid handshake set and a non-default ping pair on purpose, to prove the checker accepts alternatives.",
+  "ssid": "Linksys",
+  "bssid": "00-0B-86-C2-A4-85",
+  "password": "dictionary",
+  "handshake_frames": [93, 92, 90, 89],
+  "ping_request_frame": 285,
+  "ping_reply_frame": 286,
+  "ping_source": "172.16.0.101",
+  "ping_destination": "172.16.0.1",
+  "payload_hex": "0x4448435043",
+  "remaining_encryption_protocol": "ESP",
+  "explanation": "The WPA2 passphrase only unlocks the 802.11 link-layer encryption (CCMP). The decrypted frames reveal an IPsec ESP tunnel inside, which is encrypted with separate keys negotiated between the endpoints; recovering the Wi-Fi password gives no access to those ESP session keys, so the inner payload stays confidential. Wi-Fi encryption protects the wireless hop; the ESP layer is end-to-end encryption carried within it."
+}

@@ -1,0 +1,13 @@
+{
+  "_comment": "TA negative test: correct public password but NO/!wrong packet evidence. Must FAIL, proving the documented password alone is not sufficient.",
+  "ssid": "linksys",
+  "bssid": "00:0b:86:c2:a4:85",
+  "password": "dictionary",
+  "handshake_frames": [1, 2, 3, 4],
+  "ping_request_frame": 999,
+  "ping_reply_frame": 998,
+  "ping_source": "10.0.0.1",
+  "ping_destination": "10.0.0.2",
+  "payload_hex": "deadbeef",
+  "remaining_encryption_protocol": "HTTP"
+}

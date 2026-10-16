@@ -1,0 +1,84 @@
+{
+  "_comment": "TA-ONLY answer key for lab 1. Do NOT ship in the student package. Bound to the pinned capture by sha256; the checker refuses to grade a different file.",
+  "capture": {
+    "name": "wpa2-psk-linksys.cap",
+    "sha256": "e6a3a0f4ef454d5f881964220fe9f0e19dd9ab1c867f86bf0f85a25b416baccf",
+    "bytes": 44717
+  },
+  "fields": {
+    "ssid": {
+      "type": "exact_ci",
+      "value": "linksys",
+      "weight": 1
+    },
+    "bssid": {
+      "type": "mac",
+      "value": "00:0b:86:c2:a4:85",
+      "weight": 1
+    },
+    "password": {
+      "type": "exact",
+      "value": "dictionary",
+      "weight": 1,
+      "note": "Publicly documented; required but never sufficient on its own. Packet evidence below carries the individualized credit."
+    },
+    "handshake_frames": {
+      "type": "one_of_sets",
+      "sets": [
+        [50, 51, 53, 54],
+        [89, 90, 92, 93],
+        [339, 340, 343, 344]
+      ],
+      "weight": 2,
+      "note": "Accept any one complete 4-message EAPOL handshake set, order-insensitive."
+    },
+    "ping_pair": {
+      "type": "one_of_pairs",
+      "request_field": "ping_request_frame",
+      "reply_field": "ping_reply_frame",
+      "pairs": [
+        [56, 57],
+        [285, 286],
+        [346, 347]
+      ],
+      "weight": 2,
+      "note": "Request/reply must be a matching decrypted ICMP pair."
+    },
+    "ping_source": {
+      "type": "ip",
+      "value": "172.16.0.101",
+      "weight": 1
+    },
+    "ping_destination": {
+      "type": "ip",
+      "value": "172.16.0.1",
+      "weight": 1
+    },
+    "payload_hex": {
+      "type": "hex",
+      "value": "4448435043",
+      "ascii": "DHCPC",
+      "weight": 2,
+      "note": "frame 56 data.data; accept with or without 0x, case-insensitive."
+    },
+    "remaining_encryption_protocol": {
+      "type": "enum_ci",
+      "values": ["esp", "ipsec esp", "encapsulating security payload"],
+      "weight": 2,
+      "note": "The inner encryption still present after Wi-Fi decryption."
+    }
+  },
+  "required_for_pass": [
+    "password",
+    "handshake_frames",
+    "ping_pair",
+    "payload_hex",
+    "remaining_encryption_protocol"
+  ],
+  "pass_threshold_fraction": 0.8,
+  "manual_review": {
+    "field": "explanation",
+    "prompt": "Short free-text: why does recovering this WPA2 password NOT let you read the ESP (inner) traffic, and what is the difference between the Wi-Fi encryption layer and the additional encryption inside it?",
+    "note": "Graded by a TA; not scored by the automated checker."
+  }
+}

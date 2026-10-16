@@ -1,0 +1,13 @@
+{
+  "ssid": "",
+  "bssid": "",
+  "password": "",
+  "handshake_frames": [],
+  "ping_request_frame": null,
+  "ping_reply_frame": null,
+  "ping_source": "",
+  "ping_destination": "",
+  "payload_hex": "",
+  "remaining_encryption_protocol": "",
+  "explanation": ""
+}
