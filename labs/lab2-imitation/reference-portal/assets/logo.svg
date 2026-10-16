@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" role="img" aria-label="Aurelia Polytechnic logo">
+  <rect x="2" y="2" width="44" height="44" rx="10" fill="#1f3a8a"/>
+  <path d="M24 10 L34 30 H14 Z" fill="#f4b740"/>
+  <circle cx="24" cy="33" r="3.5" fill="#ffffff"/>
+</svg>

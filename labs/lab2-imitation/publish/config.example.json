@@ -1,0 +1,13 @@
+{
+  "_comment": "Copy to config.json and fill in. The API key and object names come from the prepared per-group GoPhish instance (see infra/README.md). verify_tls=false is fine for the self-signed local admin cert.",
+  "base_url": "https://127.0.0.1:3333",
+  "api_key": "REPLACE_WITH_GROUP_GOPHISH_API_KEY",
+  "verify_tls": false,
+  "page_name": "group-01-portal",
+  "campaign_prefix": "group-01-imitation",
+  "group_name": "group-01-recipients",
+  "smtp_name": "mailpit-local",
+  "template_name": "noop-template",
+  "phish_url": "http://127.0.0.1:8080",
+  "redirect_url": ""
+}

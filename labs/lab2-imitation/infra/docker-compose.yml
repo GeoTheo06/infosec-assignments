@@ -1,0 +1,43 @@
+# Per-group GoPhish + Mailpit stack for the imitation-page lab.
+#
+# GoPhish publishes no official image, so the stack BUILDS GoPhish from the
+# official source at a pinned release tag (v0.12.1) — the first `up` builds it
+# (needs network + git). Mailpit is a pinned published image.
+#
+# We run GoPhish with its known-good built-in config (admin on :3333 over
+# self-signed TLS, phishing server on :80), only remapping host ports. We do NOT
+# mount a custom config.json or a named DB volume: the image runs as a non-root
+# user, and overriding the DB path onto a root-owned volume makes it fail to
+# start. State is therefore per-container (reset = recreate), which is fine —
+# each publish already creates a fresh campaign/version. See README.md for an
+# optional writable config override and for persistence if you need it.
+#
+# Run ONE project per group so instances are isolated and the management origin
+# (admin :3333) is separate from the published page origin (phish :8080):
+#
+#   GROUP=group-01 docker compose -p lab2-group-01 up -d
+#
+# Pick distinct host ports per group (PHISH_PORT / ADMIN_PORT / MAILPIT_UI) to
+# run several groups on one host.
+services:
+  gophish:
+    build:
+      # Official GoPhish source, pinned to the v0.12.1 release tag. Docker clones
+      # the repo at this ref and builds its in-tree Dockerfile.
+      context: "https://github.com/gophish/gophish.git#v0.12.1"
+    image: infosec-lab/gophish:v0.12.1
+    restart: unless-stopped
+    ports:
+      - "${ADMIN_PORT:-3333}:3333"   # management UI/API (keep private to TA/group)
+      - "${PHISH_PORT:-8080}:80"     # published landing-page origin (students submit here)
+    depends_on:
+      - mailpit
+
+  mailpit:
+    image: axllent/mailpit:v1.31.6
+    restart: unless-stopped
+    ports:
+      - "${MAILPIT_UI:-8025}:8025"   # web inbox
+      # SMTP 1025 stays on the internal network; GoPhish reaches it as mailpit:1025
+    environment:
+      MP_MAX_MESSAGES: "500"

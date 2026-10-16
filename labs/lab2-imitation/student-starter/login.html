@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Portal — sign in</title>
+  <!--
+    STARTER PAGE for the imitation-page lab. Keep the <form> working:
+      * method="post" and an EMPTY action (so it posts back to the GoPhish
+        landing page it is served from);
+      * both inputs keep a name= ("username" and "password") so GoPhish's
+        "Capture Submitted Data" / "Capture Passwords" record them.
+    You may restyle everything else to resemble the reference portal. Inline
+    your CSS and link only to the supplied assets (e.g. assets/logo.svg).
+  -->
+  <style>
+    body { font-family: system-ui, Arial, sans-serif; margin: 0; background: #eef2fb;
+           display: flex; min-height: 100vh; align-items: center; justify-content: center; }
+    form { background: #fff; padding: 24px; border-radius: 12px; width: 320px;
+           box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+    h1 { font-size: 1.2rem; margin: 0 0 16px; }
+    label { display: block; font-size: .8rem; color: #555; margin: 12px 0 4px; }
+    input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+    button { margin-top: 16px; width: 100%; padding: 11px; border: 0; border-radius: 6px;
+             background: #1f3a8a; color: #fff; font-weight: 600; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <!-- method=post + empty action => posts back to the serving page -->
+  <form method="post" action="">
+    <h1>Student Portal</h1>
+    <label for="username">Student ID</label>
+    <input type="text" id="username" name="username" autocomplete="off">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" autocomplete="off">
+    <button type="submit">Sign in</button>
+  </form>
+</body>
+</html>

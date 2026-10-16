@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aurelia Polytechnic — Student Portal</title>
+  <!--
+    FICTIONAL REFERENCE PAGE for the Information Security "imitation page" lab.
+    "Aurelia Polytechnic" is an invented organization. All credentials are
+    disposable lab dummies. This page exists only to be reproduced by students
+    inside an isolated GoPhish lab; it does not represent any real institution.
+    CSS is inline and the only asset link is the logo, so the page is easy to
+    recreate and to upload as a single HTML file.
+  -->
+  <style>
+    :root {
+      --brand: #1f3a8a;
+      --brand-dark: #152a63;
+      --accent: #f4b740;
+      --ink: #1b2130;
+      --muted: #5b6577;
+      --bg: #eef2fb;
+      --card: #ffffff;
+      --line: #d7deee;
+      --ok: #1f9d55;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(160deg, var(--bg), #f8fafc 60%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header.topbar {
+      background: var(--brand);
+      color: #fff;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    header.topbar img { width: 34px; height: 34px; display: block; }
+    header.topbar .name { font-weight: 600; letter-spacing: .2px; }
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+    .card {
+      width: 100%;
+      max-width: 400px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(21, 42, 99, .12);
+      padding: 28px 26px 22px;
+    }
+    .card h1 { font-size: 1.25rem; margin: 6px 0 2px; }
+    .card .sub { color: var(--muted); font-size: .9rem; margin: 0 0 20px; }
+    .secure { display: inline-flex; align-items: center; gap: 6px; color: var(--ok); font-size: .8rem; }
+    label { display: block; font-size: .82rem; color: var(--muted); margin: 14px 0 6px; }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-size: .95rem;
+    }
+    input:focus { outline: 2px solid var(--brand); border-color: var(--brand); }
+    .row { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; font-size: .82rem; }
+    .row a { color: var(--brand); text-decoration: none; }
+    button {
+      margin-top: 18px;
+      width: 100%;
+      padding: 12px;
+      background: var(--brand);
+      color: #fff;
+      border: 0;
+      border-radius: 8px;
+      font-size: .98rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button:hover { background: var(--brand-dark); }
+    .foot { text-align: center; color: var(--muted); font-size: .72rem; padding: 18px; }
+    .banner { background: #fff7e6; border: 1px solid var(--accent); color: #7a5b00;
+              font-size: .74rem; border-radius: 8px; padding: 8px 10px; margin-bottom: 16px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <img src="assets/logo.svg" alt="Aurelia Polytechnic">
+    <span class="name">Aurelia Polytechnic</span>
+  </header>
+
+  <main>
+    <form class="card" method="post" action="">
+      <div class="banner">Lab environment — do not enter real credentials. Use the dummy marker you are given.</div>
+      <span class="secure">&#128274; Secure sign-in</span>
+      <h1>Student Portal</h1>
+      <p class="sub">Sign in with your student ID and portal password.</p>
+
+      <label for="username">Student ID</label>
+      <input type="text" id="username" name="username" autocomplete="off" placeholder="e.g. AP-100423">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" autocomplete="off" placeholder="Your portal password">
+
+      <div class="row">
+        <span><input type="checkbox" id="remember" name="remember"> <label for="remember" style="display:inline;margin:0;">Keep me signed in</label></span>
+        <a href="#">Forgot password?</a>
+      </div>
+
+      <button type="submit">Sign in</button>
+    </form>
+  </main>
+
+  <div class="foot">© 2026 Aurelia Polytechnic (fictional). Student Services · IT Help Desk · Privacy</div>
+</body>
+</html>
