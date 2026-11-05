@@ -6,6 +6,8 @@ Balanced-role edition | 15 October 2026
 
 This is the complete proposed game and assignment specification. The course arena, client scaffold and automatic grader described here still need implementation and a small pilot. It supersedes the earlier trusted-circle-assignment.md draft.
 
+For the student workflow, see the [draft student handout](trusted-circle-student-handout.md). The [instructor release decisions](trusted-circle-release-notes.md) list the details that must be settled and implemented before publication.
+
 ## 1. The game in one paragraph
 
 Three students must establish a trusted network, communicate securely, admit legitimate newcomers and remove compromised members. Three other students try to exploit mistakes in that process. Both sides can earn points in the same challenge: attackers demonstrate a weakness in an immutable vulnerable starting instance, while defenders secure their live network and pass independent tests. Attacking the opponent's hardened network earns a small competition bonus. The teams then exchange roles. At the end, the class sees the best attacking team, the best defending team and the best overall team, together with the message traces that explain the results.
